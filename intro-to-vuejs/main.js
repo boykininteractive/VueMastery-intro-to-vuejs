@@ -49,9 +49,15 @@ Vue.component("product", {
             Add to Cart
           </button>
 
-          <div class="cart">
-            <p>Cart({{cart}})</p>
-          </div>
+                    <button
+            v-on:click="removeFromCart"
+
+            
+          >
+            Remove From Cart
+          </button>
+
+
         </div>
       </div>    
     `,
@@ -60,7 +66,7 @@ Vue.component("product", {
       brand: "Vue Mastery",
       product: "Socks",
       selectedVariant: 0,
-      cart: 0,
+
       variants: [
         {
           variantID: 2234,
@@ -73,7 +79,7 @@ Vue.component("product", {
           variantID: 2235,
           variantColor: "blue",
           variantImage: "./assets/vmSocks-blue-onWhite.jpg",
-          variantQuantity: 0,
+          variantQuantity: 5,
           onSale: false
         }
       ]
@@ -81,10 +87,13 @@ Vue.component("product", {
   },
   methods: {
     addToCart() {
-      this.cart += 1;
+      this.$emit("add-to-cart", this.variants[this.selectedVariant].variantID);
     },
     removeFromCart() {
-      this.cart -= 1;
+      this.$emit(
+        "remove-from-cart",
+        this.variants[this.selectedVariant].variantID
+      );
     },
     updateProduct(index) {
       this.selectedVariant = index;
@@ -118,6 +127,19 @@ var app = new Vue({
   el: "#app",
   data: {
     premium: true,
-    details: ["80% cotton", "20% polyester", "Gender-neutral"]
+    details: ["80% cotton", "20% polyester", "Gender-neutral"],
+    cart: []
+  },
+  methods: {
+    updateCart(id) {
+      this.cart.push(id);
+    },
+    removeItem(id) {
+      for (var i = this.cart.length - 1; i >= 0; i--) {
+        if (this.cart[i] === id) {
+          this.cart.splice(i, 1);
+        }
+      }
+    }
   }
 });
