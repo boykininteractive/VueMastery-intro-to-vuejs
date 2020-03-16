@@ -21,23 +21,25 @@
           <h1>{{ product }}</h1>
           <p v-if="inStock">In Stock</p>
           <p v-else>Out of Stock</p>
-          <p v-show="onSale">On Sale!</p>
 
           <ul>
             <li v-for="detail in details">{{detail}}</li>
           </ul>
 
-          <ul>
-            <li v-for="size in sizes">{{size}}</li>
-          </ul>
-
           <div v-for="variant in variants" :key="variant.variantID">
-            <p>{{variant.variantColor}}</p>
+            <p @mouseover="updateProduct(variant.variantImage)">
+              {{variant.variantColor}}
+            </p>
+          </div>
+
+          <button v-on:click="addToCart">Add to Cart</button>
+          <button v-on:click="removeFromCart">Remove from Cart</button>
+
+          <div class="cart">
+            <p>Cart({{cart}})</p>
           </div>
         </div>
       </div>
-
-      <h2>{{ description }}</h2>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -54,4 +56,12 @@
     :class="isActive"
     :style="isStyled"
     :disabled="isDisabled"
+
+    v-on Event Examples
+    ==================
+    <button @click="addToCart">Add to cart</button>
+    <div @mouseover="updateProduct">Color</div>
+    <form @submit="addToCart">...</form>
+    <input @keyup.enter="send">    
+
 -->
