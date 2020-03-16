@@ -3,6 +3,8 @@ var app = new Vue({
   data: {
     product: "Socks",
     image: "./assets/vmSocks-blue-onWhite.jpg",
-    link: "https://vuemastery.com"
+    link: "https://vuemastery.com",
+    inStock: true,
+    onSale: true
   }
 });
