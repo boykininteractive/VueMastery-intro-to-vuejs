@@ -61,9 +61,11 @@ Vue.component("product-review", {
           rating: this.rating,
           recommend: this.recommend
         };
-        this.$emit("review-submitted", productReview)((this.name = null))(
-          (this.review = null)
-        )((this.rating = null));
+        this.$emit("review-submitted", productReview);
+        this.name = null;
+        this.review = null;
+        this.rating = null;
+        this.recommend = null;
       } else {
         if (!this.name) this.errors.push("Name required.");
         if (!this.review) this.errors.push("Review required.");
