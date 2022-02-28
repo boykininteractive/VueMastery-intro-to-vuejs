@@ -10,12 +10,22 @@
     <div class="nav-bar"></div>
 
     <div id="app">
-      <product :premium="premium"></product>
-      <product_details :details="details"></product_details>
+      <div class="cart">
+        <p>Cart {{cart}}</p>
+      </div>
+      <product-display :premium="premium"></product-display>
+      <product-display :premium="premium"></product-display>
+      <product-display :premium="premium"></product-display>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
     <script src="main.js"></script>
+    <!-- import components  -->
+    <script src="./components/ProductDisplay.js"></script>
+    <script src="./components/ProductDetails.js"></script>
+
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
   </body>
 </html>
 
