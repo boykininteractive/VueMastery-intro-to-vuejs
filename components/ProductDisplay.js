@@ -49,7 +49,7 @@ app.component("product-display", {
           variantID: 2235,
           color: "blue",
           variantImage: "assets/vmSocks-blue-onWhite.jpg",
-          quantity: 0,
+          quantity: 1,
           shipping: "",
         },
       ],
@@ -63,12 +63,13 @@ app.component("product-display", {
   },
   methods: {
     addToCart() {
-      this.cart += 1;
+      this.$emit("add-to-cart", this.variants[this.selectedVariant].variantID);
     },
     removeFromCart() {
-      if (this.cart > 0) {
-        this.cart -= 1;
-      }
+      this.$emit(
+        "remove-from-cart",
+        this.variants[this.selectedVariant].variantID
+      );
     },
     updateImage(imageColor) {
       this.image = imageColor;

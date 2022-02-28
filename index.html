@@ -7,15 +7,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="nav-bar"></div>
+    <nav>
+      <div class="nav-bar"></div>
+    </nav>
 
     <div id="app">
       <div class="cart">
-        <p>Cart {{cart}}</p>
+        <p>Cart {{cart.length}}</p>
       </div>
-      <product-display :premium="premium"></product-display>
-      <product-display :premium="premium"></product-display>
-      <product-display :premium="premium"></product-display>
+      <product-display
+        :premium="premium"
+        @add-to-cart="addCartItem"
+        @remove-from-cart="removeCartItem"
+      ></product-display>
+      <product-display
+        :premium="premium"
+        @add-to-cart="addCartItem"
+        @remove-from-cart="removeCartItem"
+      ></product-display>
+      <product-display
+        :premium="premium"
+        @add-to-cart="addCartItem"
+        @remove-from-cart="removeCartItem"
+      ></product-display>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
     <script src="main.js"></script>

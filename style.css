@@ -5,6 +5,7 @@ body {
 }
 
 .nav-bar {
+  position: relative;
   background: linear-gradient(-90deg, #84cf6a, #16c0b0);
   height: 60px;
   margin-bottom: 15px;
@@ -41,6 +42,13 @@ img {
   border: 2px solid #d8d8d8;
 }
 
+.cart {
+  position: fixed;
+  top: 5px;
+  right: 20px;
+  background: linear-gradient(-90deg, #84cf6a, #16c0b0);
+  padding: 0px 20px;
+}
 .cart-btns {
   display: flex;
   flex-direction: row;
