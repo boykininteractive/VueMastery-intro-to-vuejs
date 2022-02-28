@@ -1,7 +1,9 @@
-var app = new Vue({
-  el: "#app",
-  data: {
-    cart: 0,
+const app = Vue.createApp({
+  data() {
+    return {
+      cart: 0,
+      premium: true,
+    };
   },
   methods: {},
 });
